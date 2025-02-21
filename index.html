@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,17 +58,6 @@
         .demon-plugins {
             font-family: 'Marcellus SC', serif;
         }
-
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -10; /* Keeps it in the background */
-            background: black; /* Adjust as needed */
-            pointer-events: none; /* Prevents interaction blocking */
-        }
     </style>
 
     <script type="application/ld+json">
@@ -107,7 +95,6 @@
     <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#topnav">
-<canvas class="particles-js" style="width: 100%; height: 100%;" width="1920" height="669"></canvas>
 
 <!-- Fixed Navbar -->
 <nav class="navbar navbar-default navbar-fixed-top" id="topnav">
@@ -294,63 +281,6 @@ class Particle {
         ctx.fill();
     }
 }
-
-<script>
-tsParticles.load("particles-js", {
-    particles: {
-        number: {
-            value: 100, // Adjust for density
-            density: { enable: true, value_area: 800 }
-        },
-        color: { value: "#00ffff" }, // Cyan particles
-        shape: {
-            type: "circle"
-        },
-        opacity: {
-            value: 0.5,
-            random: true,
-            anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
-        },
-        size: {
-            value: 3,
-            random: true,
-            anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#00ffff",
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 2,
-            direction: "none",
-            random: false,
-            straight: false,
-            out_mode: "out",
-            attract: { enable: false, rotateX: 600, rotateY: 1200 }
-        }
-    },
-    interactivity: {
-        detect_on: "canvas",
-        events: {
-            onhover: { enable: true, mode: "repulse" }, // Moves particles away from mouse
-            onclick: { enable: true, mode: "push" },
-            resize: true
-        },
-        modes: {
-            grab: { distance: 400, line_linked: { opacity: 1 } },
-            bubble: { distance: 400, size: 4, duration: 0.3, opacity: 1 },
-            repulse: { distance: 100, duration: 0.4 },
-            push: { particles_nb: 4 },
-            remove: { particles_nb: 2 }
-        }
-    },
-    retina_detect: true
-});
-</script>
     
 </body>
 </html>
