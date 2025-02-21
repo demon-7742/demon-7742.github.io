@@ -1,30 +1,62 @@
+/* Reset and body styles */
 body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background-color: #1a001a; /* Dark purple */
-    color: #e0b3ff; /* Light purple text */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  text-align: center;
 }
 
-header {
-    background-color: #4b0082; /* Deep purple */
-    color: white;
-    padding: 20px;
-    font-size: 24px;
+/* Header */
+.header {
+  background-color: #1A1A1A;
+  padding: 20px;
+}
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+.title {
+  color: #B71CFF;
+  font-size: 2rem;
 }
 
-button {
-    background-color: #800080; /* Purple */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-    border-radius: 5px;
+/* Sections */
+.discord-section, .features-section, .plugins-section, .subscription-section {
+  margin: 30px 0;
+}
+.discord-section h2, .features-section h2, .plugins-section h2 {
+  color: #7FC9FF;
 }
 
-button:hover {
-    background-color: #9400D3; /* Dark violet */
+/* Lists */
+.features-list, .plugins-list {
+  list-style: none;
+  padding: 0;
+}
+.features-list li, .plugins-list li {
+  padding: 5px 0;
+}
+
+/* Buttons and links */
+.discord-button {
+  display: inline-block;
+  background-color: #B71CFF;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+.discord-button:hover {
+  background-color: #9F1BEC;
+}
+
+/* Pricing */
+.price {
+  color: #FFA64D;
+  font-weight: bold;
 }
