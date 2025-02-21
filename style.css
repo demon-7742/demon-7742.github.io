@@ -1,55 +1,110 @@
+/* Reset & Global Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0A0A0A;
-  color: #FFFFFF;
+  font-family: "Arial", sans-serif;
+  background-color: #0a0a0a;
+  color: #ffffff;
   text-align: center;
 }
 
-/* Header */
+/* HEADER */
 .header {
-  background-color: #1A1A1A;
-  padding: 20px;
+  background: linear-gradient(90deg, #360048, #B71CFF);
+  padding: 60px 20px;
 }
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.header-logo {
-  width: 50px;
+.logo {
+  width: 120px;
   height: auto;
-  margin-right: 10px;
 }
-.header-title {
-  color: #B71CFF;
+.header h1 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+.header p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+.discord-btn {
+  display: inline-block;
+  background-color: #B71CFF;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.discord-btn:hover {
+  background-color: #9F1BEC;
+}
+
+/* DISCORD WIDGET */
+.discord-widget {
+  margin: 40px 0;
+}
+
+/* VIDEOS */
+.videos h2 {
   font-size: 2rem;
+  margin-bottom: 20px;
 }
-
-/* Sections */
-.discord-section, .media-section, .cta-section {
-  margin: 30px 0;
-}
-
-/* Media section */
-.videos {
+.video-container {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.video-container iframe {
+  width: 320px;
+  height: 180px;
+  border-radius: 10px;
 }
 
-/* Call-to-Action Button */
-.cta-button {
+/* PLUGINS */
+.plugins {
+  padding: 40px 20px;
+}
+.plugins h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.plugin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  padding: 0 20px;
+}
+.plugin {
+  background: #1A1A1A;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-align: left;
+  color: #FFFFFF;
+}
+.plugin-title {
+  font-weight: bold;
+  color: #FFA64D;
+}
+
+/* PURCHASE */
+.purchase {
+  background-color: #1A1A1A;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
+.purchase .price {
+  color: #FFA64D;
+  font-weight: bold;
+}
+.purchase-btn {
   display: inline-block;
   background-color: #FFA64D;
-  color: #FFFFFF;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
   text-decoration: none;
   font-size: 1.2rem;
 }
-.cta-button:hover {
+.purchase-btn:hover {
   background-color: #E59440;
 }
