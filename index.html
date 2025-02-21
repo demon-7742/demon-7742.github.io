@@ -5,15 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Demon Plugins</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="https://i.imgur.com/wNH7OJ4.png" type="image/png">
+  <script defer src="script.js"></script>
+  <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body>
 
-  <!-- HEADER SECTION -->
+  <!-- HEADER -->
   <header class="header">
-    <img src="https://i.imgur.com/wNH7OJ4.png" alt="Demon Plugins Logo" class="logo">
-    <h1>Demon Plugins</h1>
-    <p>Compatible with most platforms via RLPL loader or a sideloadable JAR</p>
+    <div class="nav">
+      <img src="assets/logo.png" alt="Demon Plugins Logo" class="logo">
+      <h1>Demon Plugins</h1>
+    </div>
+    <p>Compatible with RLPL loader & sideloadable JAR</p>
     <a href="https://discord.gg/demonplugins" class="discord-btn">Join Discord</a>
   </header>
 
@@ -22,7 +25,7 @@
     <iframe src="https://discord.com/widget?id=1321190625475035299&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
   </section>
 
-  <!-- VIDEOS SECTION -->
+  <!-- VIDEOS -->
   <section class="videos">
     <h2>See Our Plugins in Action</h2>
     <div class="video-container">
@@ -31,27 +34,21 @@
     </div>
   </section>
 
-  <!-- PLUGINS LIST -->
+  <!-- PLUGINS -->
   <section class="plugins">
     <h2>Our Plugins</h2>
     <div class="plugin-grid">
-      <div class="plugin"><span class="plugin-title">Royal Titans</span> - Fully-automated bot</div>
-      <div class="plugin"><span class="plugin-title">Hallowed Sepulchre</span> - Fully automated bot</div>
-      <div class="plugin"><span class="plugin-title">Tithe Farm</span> - Progressive automation</div>
-      <div class="plugin"><span class="plugin-title">Mastering Mixology</span> - Auto mixing bot</div>
-      <div class="plugin"><span class="plugin-title">Giants’ Foundry</span> - Fully automated</div>
-      <div class="plugin"><span class="plugin-title">Pyramid Plunder</span> - Loot urns & hunt sceptres</div>
-      <div class="plugin"><span class="plugin-title">Agility Suite</span> - Auto agility course runner</div>
-      <div class="plugin"><span class="plugin-title">Mining Suite</span> - Normal mining & Motherlode</div>
-      <div class="plugin"><span class="plugin-title">Fishing Suite</span> - Minnows & Trawler support</div>
-      <div class="plugin"><span class="plugin-title">Prayer Suite</span> - Auto prayer training</div>
+      <div class="plugin">Royal Titans - Fully automated bot</div>
+      <div class="plugin">Hallowed Sepulchre - Fully automated bot</div>
+      <div class="plugin">Tithe Farm - Progressive automation</div>
+      <div class="plugin">Mastering Mixology - Auto mixing bot</div>
     </div>
   </section>
 
   <!-- PURCHASE BUTTON -->
   <section class="purchase">
-    <p>Subscribe for just <span class="price">$25/30 days</span> or <span class="price">$250/lifetime</span> to access all plugins!</p>
-    <a href="#" class="purchase-btn">Purchase Now</a>
+    <p>Subscribe for <span class="price">$25/30 days</span> or <span class="price">$250/lifetime</span></p>
+    <button id="purchase-btn" class="purchase-btn">Purchase Now</button>
   </section>
 
 </body>
