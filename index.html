@@ -29,7 +29,7 @@
         body, html {
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow-x: hidden;
             background-color: black; /* Adjust if needed */
         }
 
@@ -39,7 +39,8 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -1; /* Ensures it's behind everything */
+            z-index: -10; /* Move it further back */
+            pointer-events: none; /* Prevents interaction blocking */
         }
         /* Ensure logo is properly sized */
         .logo {
@@ -260,10 +261,12 @@ const mouse = { x: 0, y: 0 };
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-window.addEventListener("resize", () => {
+function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-});
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas(); // Ensure it runs on page load
 
 window.addEventListener("mousemove", (event) => {
     mouse.x = event.x;
@@ -289,7 +292,7 @@ class Particle {
     }
 
     draw() {
-        ctx.fillStyle = "rgba(173, 216, 230, 0.8)";
+        ctx.fillStyle = "rgba(0, 255, 255, 0.8)";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
