@@ -32,6 +32,22 @@
         .leadsection {
             padding-top: 30px !important; /* Adjusted from 300px */
         }
+
+        /* Video Section Styling */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .video-container iframe {
+            width: 560px;
+            height: 315px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
     </style>
 
     <!-- HTML5 Shim -->
@@ -57,6 +73,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#videos">Videos</a></li>
             </ul>
         </div>
     </div>
@@ -80,6 +97,25 @@
                 </a>
             </div>
             <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Videos Section -->
+<div class="row">
+    <div class="col-md-12 section innershadow nimvelo1" id="videos">
+        <h2>See Our Plugins in Action</h2>
+        <div class="video-container">
+            <!-- Hallowed Sepulchre Video -->
+            <div>
+                <h3>Hallowed Sepulchre</h3>
+                <iframe src="https://www.youtube.com/embed/Uvfp9bWunjA" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <!-- Royal Titans Video -->
+            <div>
+                <h3>Royal Titans</h3>
+                <iframe src="https://www.youtube.com/embed/Tm1aLItC9Y0" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 </div>
