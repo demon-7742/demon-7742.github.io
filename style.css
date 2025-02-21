@@ -1,13 +1,30 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #1a001a; /* Dark purple */
+    color: #e0b3ff; /* Light purple text */
 }
 
 header {
-    background-color: #333;
+    background-color: #4b0082; /* Deep purple */
     color: white;
     padding: 20px;
+    font-size: 24px;
+}
+
+button {
+    background-color: #800080; /* Purple */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #9400D3; /* Dark violet */
 }
