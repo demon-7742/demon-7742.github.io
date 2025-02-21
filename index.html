@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,22 +27,6 @@
     <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
 
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background-color: black; /* Adjust if needed */
-        }
-
-        #synapse-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -10; /* Move it further back */
-            pointer-events: none; /* Prevents interaction blocking */
-        }
         /* Ensure logo is properly sized */
         .logo {
             width: 500px;
@@ -73,6 +58,17 @@
 
         .demon-plugins {
             font-family: 'Marcellus SC', serif;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -10; /* Keeps it in the background */
+            background: black; /* Adjust as needed */
+            pointer-events: none; /* Prevents interaction blocking */
         }
     </style>
 
@@ -111,7 +107,7 @@
     <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#topnav">
-<canvas id="synapse-bg"></canvas>
+<div id="particles-js"></div>
 
 <!-- Fixed Navbar -->
 <nav class="navbar navbar-default navbar-fixed-top" id="topnav">
@@ -299,49 +295,62 @@ class Particle {
     }
 }
 
-// Initialize Particles
-function initParticles() {
-    particles = [];
-    for (let i = 0; i < maxParticles; i++) {
-        particles.push(new Particle());
-    }
-}
-initParticles();
-
-// Draw Connections
-function drawConnections() {
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            let dx = particles[i].x - particles[j].x;
-            let dy = particles[i].y - particles[j].y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 100) {
-                ctx.strokeStyle = `rgba(173, 216, 230, ${1 - distance / 100})`;
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.stroke();
-            }
+<script>
+tsParticles.load("particles-js", {
+    particles: {
+        number: {
+            value: 100, // Adjust for density
+            density: { enable: true, value_area: 800 }
+        },
+        color: { value: "#00ffff" }, // Cyan particles
+        shape: {
+            type: "circle"
+        },
+        opacity: {
+            value: 0.5,
+            random: true,
+            anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+        },
+        size: {
+            value: 3,
+            random: true,
+            anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
+        },
+        line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#00ffff",
+            opacity: 0.4,
+            width: 1
+        },
+        move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            attract: { enable: false, rotateX: 600, rotateY: 1200 }
         }
-    }
-}
-
-// Animation Loop
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (let particle of particles) {
-        particle.update();
-        particle.draw();
-    }
-
-    drawConnections();
-    requestAnimationFrame(animate);
-}
-animate();
+    },
+    interactivity: {
+        detect_on: "canvas",
+        events: {
+            onhover: { enable: true, mode: "repulse" }, // Moves particles away from mouse
+            onclick: { enable: true, mode: "push" },
+            resize: true
+        },
+        modes: {
+            grab: { distance: 400, line_linked: { opacity: 1 } },
+            bubble: { distance: 400, size: 4, duration: 0.3, opacity: 1 },
+            repulse: { distance: 100, duration: 0.4 },
+            push: { particles_nb: 4 },
+            remove: { particles_nb: 2 }
+        }
+    },
+    retina_detect: true
+});
 </script>
-
+    
 </body>
 </html>
