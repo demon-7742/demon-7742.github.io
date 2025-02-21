@@ -1,4 +1,3 @@
-/* Reset and body styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -12,51 +11,45 @@ body {
   background-color: #1A1A1A;
   padding: 20px;
 }
-.logo {
-  width: 150px;
-  height: auto;
-  margin-bottom: 10px;
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.title {
+.header-logo {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+.header-title {
   color: #B71CFF;
   font-size: 2rem;
 }
 
 /* Sections */
-.discord-section, .features-section, .plugins-section, .subscription-section {
+.discord-section, .media-section, .cta-section {
   margin: 30px 0;
 }
-.discord-section h2, .features-section h2, .plugins-section h2 {
-  color: #7FC9FF;
+
+/* Media section */
+.videos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
-/* Lists */
-.features-list, .plugins-list {
-  list-style: none;
-  padding: 0;
-}
-.features-list li, .plugins-list li {
-  padding: 5px 0;
-}
-
-/* Buttons and links */
-.discord-button {
+/* Call-to-Action Button */
+.cta-button {
   display: inline-block;
-  background-color: #B71CFF;
+  background-color: #FFA64D;
   color: #FFFFFF;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 1rem;
-  margin-top: 10px;
+  font-size: 1.2rem;
 }
-.discord-button:hover {
-  background-color: #9F1BEC;
-}
-
-/* Pricing */
-.price {
-  color: #FFA64D;
-  font-weight: bold;
+.cta-button:hover {
+  background-color: #E59440;
 }
