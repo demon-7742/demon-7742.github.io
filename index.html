@@ -13,13 +13,13 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans" rel="stylesheet">
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap & Custom Styles -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/onepagers-solid.css" rel="stylesheet">
     <link href="./css/colours.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
 
-    <!-- HTML5 shim and Respond.js for IE8 support -->
+    <!-- HTML5 Shim for old IE -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -41,20 +41,18 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#section1">Home</a></li>
-                <li><a href="#section2">Plugins</a></li>
-                <li><a href="#section3">Videos</a></li>
-                <li><a href="#section4">Join Discord</a></li>
-                <li><a href="#purchase" class="btn btn-warning navbar-btn">Purchase</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#plugins">Our Plugins</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- Home Section -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 leadsection innershadow custom-theme" id="section1">
+        <div class="col-md-12 leadsection innershadow purple-theme" id="home">
             <div class="col-md-1"></div>
             <div class="col-md-10">
                 <img src="assets/logo.png" alt="Demon Plugins Logo" class="logo">
@@ -64,7 +62,7 @@
                 <a class="btn btn-primary btn-lg bigger-btn btn-trans" href="https://discord.gg/demonplugins">
                     <i class="fa fa-discord"></i> Join Discord
                 </a>
-                <a class="btn btn-info btn-lg bigger-btn btn-trans" href="#purchase">
+                <a class="btn btn-warning btn-lg bigger-btn btn-trans" href="#purchase">
                     <i class="fa fa-shopping-cart"></i> Purchase Now
                 </a>
             </div>
@@ -73,19 +71,9 @@
     </div>
 </div>
 
-<!-- Discord Widget Section -->
+<!-- Videos Section -->
 <div class="row">
-    <div class="col-md-12 section discord-theme" id="section4">
-        <h2>Join Our Discord</h2>
-        <iframe src="https://discord.com/widget?id=1321190625475035299&theme=dark"
-                width="350" height="500" allowtransparency="true" frameborder="0"
-                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-    </div>
-</div>
-
-<!-- Video Section -->
-<div class="row">
-    <div class="col-md-12 section custom-theme" id="section3">
+    <div class="col-md-12 section dark-theme" id="videos">
         <h2>See Our Plugins in Action</h2>
         <div class="row">
             <div class="col-md-6">
@@ -100,7 +88,7 @@
 
 <!-- Plugins List -->
 <div class="row">
-    <div class="col-md-12 section plugins-theme" id="section2">
+    <div class="col-md-12 section darker-theme" id="plugins">
         <h2>Our Plugins</h2>
         <ul class="plugin-list">
             <li>✔️ Royal Titans - Fully automated</li>
@@ -113,17 +101,6 @@
             <li>✔️ Fishing Suite - Minnows & Fishing Trawler</li>
             <li>✔️ Prayer Suite - Auto prayer training</li>
         </ul>
-    </div>
-</div>
-
-<!-- Purchase Section -->
-<div class="row">
-    <div class="col-md-12 section purchase-theme" id="purchase">
-        <h2>Get Access to All Plugins</h2>
-        <p class="price">Only <b>$25/30 days</b> or <b>$250/lifetime</b></p>
-        <a class="btn btn-warning btn-lg bigger-btn btn-trans" href="#">
-            <i class="fa fa-shopping-cart"></i> Purchase Now
-        </a>
     </div>
 </div>
 
