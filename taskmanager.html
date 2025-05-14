@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task List Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .task {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .task select, .task input[type="text"], .task input[type="number"], .task input[type="file"] {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task List Editor</h1>
+    <ol id="taskList"></ol>
+    <button onclick="addTask()">Add Task</button>
+
+    <script>
+        const TaskType = {
+            START_PLUGIN: "Start plugin",
+            LOGOUT: "Logout"
+        };
+
+        const StopConditionType = {
+            NONE: "None",
+            LEVEL: "Level"
+        };
+
+        let taskCount = 0;
+
+        function addTask() {
+            taskCount++;
+            const li = document.createElement("li");
+            li.className = "task";
+
+            const taskSelect = document.createElement("select");
+            for (const key in TaskType) {
+                const option = document.createElement("option");
+                option.value = TaskType[key];
+                option.textContent = TaskType[key];
+                taskSelect.appendChild(option);
+            }
+            li.appendChild(document.createTextNode("Task: "));
+            li.appendChild(taskSelect);
+
+            const pluginNameInput = document.createElement("input");
+            pluginNameInput.type = "text";
+            pluginNameInput.placeholder = "Plugin name";
+            li.appendChild(pluginNameInput);
+
+            const pluginConfigInput = document.createElement("input");
+            pluginConfigInput.type = "file";
+            pluginConfigInput.accept = ".json";
+            li.appendChild(pluginConfigInput);
+
+            const stopLabel = document.createElement("label");
+            stopLabel.textContent = "Stop condition:";
+            li.appendChild(stopLabel);
+
+            const stopSelect = document.createElement("select");
+            for (const key in StopConditionType) {
+                const option = document.createElement("option");
+                option.value = StopConditionType[key];
+                option.textContent = StopConditionType[key];
+                stopSelect.appendChild(option);
+            }
+            li.appendChild(stopSelect);
+
+            const stopDetails = document.createElement("div");
+            li.appendChild(stopDetails);
+
+            stopSelect.addEventListener("change", () => {
+                stopDetails.innerHTML = "";
+                if (stopSelect.value === StopConditionType.LEVEL) {
+                    const skillInput = document.createElement("input");
+                    skillInput.type = "text";
+                    skillInput.placeholder = "Skill (e.g., Woodcutting)";
+                    stopDetails.appendChild(skillInput);
+
+                    const operatorSelect = document.createElement("select");
+                    [">=", "<=", "==", "!="].forEach(op => {
+                        const opOption = document.createElement("option");
+                        opOption.value = op;
+                        opOption.textContent = op;
+                        operatorSelect.appendChild(opOption);
+                    });
+                    stopDetails.appendChild(operatorSelect);
+
+                    const valueInput = document.createElement("input");
+                    valueInput.type = "number";
+                    valueInput.placeholder = "Value";
+                    stopDetails.appendChild(valueInput);
+                }
+            });
+
+            taskSelect.addEventListener("change", () => {
+                const requiresStop = taskSelect.value !== TaskType.LOGOUT;
+                stopSelect.disabled = !requiresStop;
+                if (!requiresStop) {
+                    stopSelect.value = StopConditionType.NONE;
+                    stopDetails.innerHTML = "";
+                }
+            });
+
+            document.getElementById("taskList").appendChild(li);
+        }
+
+        // Initialize with first task
+        addTask();
+    </script>
+</body>
+</html>
