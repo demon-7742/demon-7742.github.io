@@ -5,161 +5,370 @@
   <title>Task Builder</title>
   <style>
     body {
-      background: #f4f4f9;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
+      padding: 0;
     }
-    .container {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      width: 800px;
-    }
+
     h1 {
       text-align: center;
-      font-size: 28px;
-      color: #333;
-      margin-bottom: 20px;
+      margin: 20px 0;
+      color: #00bcd4;
     }
+
+    #builder {
+      max-width: 95%;
+      margin: auto;
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .toolbar {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .task-row {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px;
+      gap: 12px;
+      padding: 10px;
+      background-color: #2a2a2a;
+      border-radius: 6px;
+      position: relative;
+      white-space: nowrap;
+      overflow-x: auto;
+      cursor: grab;
     }
-    .task-row input, .task-row select {
-      padding: 5px;
-      font-size: 14px;
-    }
-    .task-row input[type="file"] {
-      border: none;
-    }
-    button {
-      padding: 10px 20px;
-      margin-top: 15px;
+
+    .task-row::before {
+      content: attr(data-index) ".";
       font-weight: bold;
-      background-color: #4CAF50;
-      color: white;
+      margin-right: 8px;
+      color: #ccc;
+      min-width: 20px;
+      display: inline-block;
+    }
+
+    select, input[type="file"], input[type="number"], input[type="text"] {
+      background-color: #333;
+      color: #f0f0f0;
+      border: 1px solid #555;
+      padding: 5px;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #00bcd4;
+      color: black;
       border: none;
-      border-radius: 5px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 0 5px;
+    }
+
+    button:hover {
+      background-color: #0097a7;
+    }
+
+    .delete-task {
+      margin-left: auto;
+      font-weight: bold;
+      color: red;
+      background: transparent;
+      border: none;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #45a049;
+
+    label {
+      font-size: 0.9em;
+    }
+
+    .filename-label {
+      font-size: 0.85em;
+      color: #ccc;
+      margin-left: 5px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Task List Builder</h1>
-    <ol id="taskList"></ol>
-    <button onclick="addTask()">Add Task</button>
+
+<h1>Task Builder</h1>
+<div id="builder">
+  <div class="toolbar">
+    <button onclick="addTask()">+ Add Task</button>
+    <button onclick="exportScript()">📤 Export</button>
+    <button onclick="document.getElementById('importInput').click()">📥 Import</button>
+    <input type="file" id="importInput" accept=".tmscript" style="display: none" onchange="importScript(this.files[0])">
   </div>
+  <div class="task-list" id="taskList"></div>
+</div>
 
-  <script>
-    const TaskEnum = {
-      START_PLUGIN: { label: "Start plugin", fields: ["pluginName", "pluginConfig"] },
-      LOGOUT: { label: "Logout", fields: [] }
+<script>
+  const TaskType = {
+    START_PLUGIN: "Start plugin",
+    LOGOUT: "Logout",
+    IDLE: "Idle"
+  };
+
+  const StopCondition = {
+    LEVEL: "Level",
+    TIME_ELAPSED: "Time Elapsed",
+    NONE: "None"
+  };
+
+  const Plugins = {
+    AGILITY_SUITE: ["Agility Suite", "agilitysuite"],
+    ARCEUUS_LIBRARY: ["Arceuus Library", "arceuuslibrary"],
+    WOODCUTTING_SUITE: ["Woodcutting Suite", "woodcuttingsuite"]
+  };
+
+  const Skills = ["Attack", "Defence", "Strength", "Hitpoints", "Ranged", "Prayer", "Magic",
+    "Cooking", "Woodcutting", "Fletching", "Fishing", "Firemaking", "Crafting",
+    "Smithing", "Mining", "Herblore", "Agility", "Thieving", "Slayer", "Farming",
+    "Runecraft", "Hunter", "Construction"];
+
+  const taskList = document.getElementById("taskList");
+
+  function addTask(taskData = null) {
+    const row = document.createElement("div");
+    row.className = "task-row";
+    row.setAttribute("draggable", "true");
+
+    const taskSelect = document.createElement("select");
+    Object.values(TaskType).forEach(t => {
+      const opt = document.createElement("option");
+      opt.value = t;
+      opt.textContent = t;
+      taskSelect.appendChild(opt);
+    });
+
+    const pluginContainer = document.createElement("div");
+    pluginContainer.style.display = "flex";
+    pluginContainer.style.gap = "12px";
+
+    const pluginSelect = document.createElement("select");
+    Object.values(Plugins).forEach(([name, group]) => {
+      const opt = document.createElement("option");
+      opt.value = group;
+      opt.textContent = name;
+      pluginSelect.appendChild(opt);
+    });
+
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = ".json";
+
+    const fileLabel = document.createElement("span");
+    fileLabel.className = "filename-label";
+
+    const configData = { filename: "", data: null };
+
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          configData.filename = file.name;
+          configData.data = parsed;
+          fileLabel.textContent = file.name;
+        } catch {
+          alert("Invalid JSON file.");
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    pluginContainer.append(pluginSelect, fileInput, fileLabel);
+
+    const stopLabel = document.createElement("label");
+    stopLabel.textContent = "Stop:";
+
+    const stopSelect = document.createElement("select");
+    Object.values(StopCondition).forEach(s => {
+      const opt = document.createElement("option");
+      opt.value = s;
+      opt.textContent = s;
+      stopSelect.appendChild(opt);
+    });
+
+    const stopFields = document.createElement("div");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "❌";
+    deleteBtn.className = "delete-task";
+    deleteBtn.onclick = () => {
+      row.remove();
+      updateTaskNumbers();
     };
 
-    const StopConditionEnum = {
-      NONE: { label: "None", fields: [] },
-      LEVEL: { label: "Level", fields: ["skill", "operator", "value"] }
+    function renderStopFields() {
+      stopFields.innerHTML = "";
+      if (stopSelect.value === StopCondition.LEVEL) {
+        const skill = document.createElement("select");
+        Skills.forEach(s => {
+          const opt = document.createElement("option");
+          opt.value = s;
+          opt.textContent = s;
+          skill.appendChild(opt);
+        });
+        const op = document.createElement("select");
+        [">=", "<=", "=="].forEach(o => {
+          const opt = document.createElement("option");
+          opt.value = o;
+          opt.textContent = o;
+          op.appendChild(opt);
+        });
+        const val = document.createElement("input");
+        val.type = "number";
+        val.placeholder = "Value";
+        stopFields.append("Level:", skill, op, val);
+      } else if (stopSelect.value === StopCondition.TIME_ELAPSED) {
+        const input = document.createElement("input");
+        input.type = "number";
+        input.placeholder = "Seconds";
+        stopFields.append("Time:", input);
+      }
+    }
+
+    function renderTask() {
+      const task = taskSelect.value;
+      const isLogout = task === TaskType.LOGOUT;
+      const isIdle = task === TaskType.IDLE;
+      pluginContainer.style.display = (task === TaskType.START_PLUGIN) ? "flex" : "none";
+      if (isLogout) {
+        stopLabel.style.display = "none";
+        stopSelect.style.display = "none";
+        stopSelect.value = StopCondition.NONE;
+        stopSelect.disabled = true;
+        stopFields.innerHTML = "";
+      } else if (isIdle) {
+        stopLabel.style.display = "inline";
+        stopSelect.style.display = "inline";
+        stopSelect.disabled = true;
+        stopSelect.value = StopCondition.TIME_ELAPSED;
+        renderStopFields();
+      } else {
+        stopLabel.style.display = "inline";
+        stopSelect.style.display = "inline";
+        stopSelect.disabled = false;
+        renderStopFields();
+      }
+    }
+
+    stopSelect.addEventListener("change", renderStopFields);
+    taskSelect.addEventListener("change", renderTask);
+
+    row.append("Task:", taskSelect, pluginContainer, stopLabel, stopSelect, stopFields, deleteBtn);
+    taskList.appendChild(row);
+
+    // Rehydration
+    if (taskData) {
+      taskSelect.value = taskData.task;
+      if (taskData.plugin) {
+        pluginSelect.value = taskData.plugin.group;
+        configData.filename = taskData.plugin.config.filename;
+        configData.data = taskData.plugin.config.data;
+        fileLabel.textContent = configData.filename;
+      }
+      stopSelect.value = taskData.stop?.type || StopCondition.NONE;
+      renderTask();
+    } else {
+      renderTask();
+    }
+
+    row._data = () => ({
+      task: taskSelect.value,
+      plugin: (taskSelect.value === TaskType.START_PLUGIN) ? {
+        name: pluginSelect.options[pluginSelect.selectedIndex].text,
+        group: pluginSelect.value,
+        config: { filename: configData.filename, data: configData.data }
+      } : null,
+      stop: stopSelect.style.display === "none" ? null : {
+        type: stopSelect.value,
+        details: Array.from(stopFields.querySelectorAll("input,select")).map(e => e.value)
+      }
+    });
+
+    // Drag support
+    row.addEventListener("dragstart", () => dragged = row);
+    row.addEventListener("dragover", e => e.preventDefault());
+	row.addEventListener("drop", e => {
+	  e.preventDefault();
+	  const target = e.currentTarget;
+	  if (!dragged || dragged === target) return;
+
+	  const rows = Array.from(taskList.children);
+	  const draggedIndex = rows.indexOf(dragged);
+	  const targetIndex = rows.indexOf(target);
+
+	  const bounds = target.getBoundingClientRect();
+	  const mouseY = e.clientY;
+	  const midpoint = bounds.top + bounds.height / 2;
+
+	  let insertBeforeNode = mouseY < midpoint ? target : target.nextSibling;
+
+	  const predictedIndex = insertBeforeNode
+		? rows.indexOf(insertBeforeNode)
+		: rows.length;
+	  if (
+		predictedIndex === draggedIndex ||                       
+		predictedIndex === draggedIndex + 1                
+	  ) {
+		if (draggedIndex < targetIndex) {
+		  insertBeforeNode = target.nextSibling;
+		} else {
+		  insertBeforeNode = target;
+		}
+	  }
+
+	  taskList.insertBefore(dragged, insertBeforeNode);
+	  updateTaskNumbers();
+	});
+
+    updateTaskNumbers();
+  }
+
+  function updateTaskNumbers() {
+    document.querySelectorAll(".task-row").forEach((r, i) => r.setAttribute("data-index", i + 1));
+  }
+
+  function exportScript() {
+    const data = Array.from(taskList.children).map(row => row._data());
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "script.tmscript";
+    a.click();
+  }
+
+  function importScript(file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const data = JSON.parse(reader.result);
+        taskList.innerHTML = "";
+        data.forEach(task => addTask(task));
+      } catch {
+        alert("Invalid .tmscript file");
+      }
     };
+    reader.readAsText(file);
+  }
+</script>
 
-    function createOption(value, text) {
-      const option = document.createElement("option");
-      option.value = value;
-      option.textContent = text;
-      return option;
-    }
-
-    function addTask() {
-      const li = document.createElement("li");
-      li.className = "task-row";
-
-      // Task select
-      const taskSelect = document.createElement("select");
-      for (const key in TaskEnum) {
-        taskSelect.appendChild(createOption(key, TaskEnum[key].label));
-      }
-
-      // Stop select
-      const stopSelect = document.createElement("select");
-      for (const key in StopConditionEnum) {
-        stopSelect.appendChild(createOption(key, StopConditionEnum[key].label));
-      }
-
-      // Containers for dynamic fields
-      const taskFieldsContainer = document.createElement("span");
-      const stopFieldsContainer = document.createElement("span");
-
-      // Trigger updates
-      function updateTaskFields() {
-        taskFieldsContainer.innerHTML = "";
-        const fields = TaskEnum[taskSelect.value].fields;
-        if (fields.includes("pluginName")) {
-          const nameInput = document.createElement("input");
-          nameInput.type = "text";
-          nameInput.placeholder = "Plugin name";
-          taskFieldsContainer.appendChild(nameInput);
-        }
-        if (fields.includes("pluginConfig")) {
-          const configInput = document.createElement("input");
-          configInput.type = "file";
-          configInput.accept = ".json";
-          taskFieldsContainer.appendChild(configInput);
-        }
-      }
-
-      function updateStopFields() {
-        stopFieldsContainer.innerHTML = "";
-        const fields = StopConditionEnum[stopSelect.value].fields;
-        if (fields.includes("skill")) {
-          const skillInput = document.createElement("input");
-          skillInput.type = "text";
-          skillInput.placeholder = "Skill";
-          stopFieldsContainer.appendChild(skillInput);
-        }
-        if (fields.includes("operator")) {
-          const operatorSelect = document.createElement("select");
-          [">=", "<=", "==", "!="].forEach(op => {
-            operatorSelect.appendChild(createOption(op, op));
-          });
-          stopFieldsContainer.appendChild(operatorSelect);
-        }
-        if (fields.includes("value")) {
-          const valueInput = document.createElement("input");
-          valueInput.type = "number";
-          valueInput.placeholder = "Value";
-          stopFieldsContainer.appendChild(valueInput);
-        }
-      }
-
-      taskSelect.addEventListener("change", updateTaskFields);
-      stopSelect.addEventListener("change", updateStopFields);
-
-      updateTaskFields();
-      updateStopFields();
-
-      li.appendChild(document.createTextNode("Task: "));
-      li.appendChild(taskSelect);
-      li.appendChild(taskFieldsContainer);
-      li.appendChild(document.createTextNode(" Stop: "));
-      li.appendChild(stopSelect);
-      li.appendChild(stopFieldsContainer);
-
-      document.getElementById("taskList").appendChild(li);
-    }
-
-    addTask();
-  </script>
 </body>
 </html>
