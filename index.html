@@ -4,282 +4,1044 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Demon Plugins - Advanced RuneLite bots for OSRS. Automate PVM, skilling, minigames, and more with our premium Runelite plugins.">
-    <meta name="keywords" content="OSRS bot, botting, Runelite plugin, automation, agility bot, crafting bot, RuneScape automation, Old School RuneScape bots, hallowed, sepulchre, royal, titans">
-    <meta property="og:title" content="Demon Plugins - Advanced RuneLite Bots for OSRS">
-    <meta property="og:description" content="Unlock powerful RuneLite bots for OSRS with Demon Plugins. Fully automated scripts for PVM, skilling, minigames, and more.">
-    <meta property="og:image" content="assets/dp.png">
-    <meta property="og:url" content="https://demonplugins.com">
-    
-    <title>Demon Plugins</title>
+    <meta name="description" content="Demon Plugins: advanced RuneLite plugins for Old School RuneScape. 40+ premium scripts for PVM, bossing, skilling and minigames. Join the Discord and automate your grind.">
+    <meta name="keywords" content="OSRS plugins, RuneLite plugins, OSRS automation, Old School RuneScape, RLPL, Hallowed Sepulchre, Royal Titans, Mastering Mixology, Demon Plugins">
+    <meta name="author" content="Demon Plugins">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#0a060f">
+    <link rel="canonical" href="https://demonplugins.com/">
 
-    <!-- Favicon -->
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Demon Plugins">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Demon Plugins: Advanced RuneLite Plugins for OSRS">
+    <meta property="og:description" content="40+ premium RuneLite plugins for Old School RuneScape. PVM, bossing, skilling and minigames. Join the Discord and automate your grind.">
+    <meta property="og:url" content="https://demonplugins.com/">
+    <meta property="og:image" content="https://demonplugins.com/assets/banner.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Demon Plugins - advanced RuneLite plugins for OSRS">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Demon Plugins: Advanced RuneLite Plugins for OSRS">
+    <meta name="twitter:description" content="40+ premium RuneLite plugins for Old School RuneScape. PVM, bossing, skilling and minigames.">
+    <meta name="twitter:image" content="https://demonplugins.com/assets/banner.png">
+
+    <title>Demon Plugins: Advanced RuneLite Plugins for OSRS</title>
+
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/logo.png">
 
-    <!-- Fonts & Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap" rel="stylesheet">
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/onepagers-solid.css" rel="stylesheet">
-    <link href="./css/colours.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;500;600;700;800;900&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=VT323&display=swap" rel="stylesheet">
 
     <style>
-        /* Ensure logo is properly sized */
-        .logo {
-            width: 25vw; /* 1/4th of the viewport width */
-            max-width: 450px; /* Prevents it from getting too large on very wide screens */
-            height: auto; /* Maintains aspect ratio */
+        /* ============================================================
+           DEMON PLUGINS - "Demonic Forge"
+           obsidian · demonic purple · ember fire · rune gold
+           ============================================================ */
+        :root {
+            --obsidian:    #0a060f;
+            --obsidian-2:  #110a1c;
+            --stone:       #160e22;
+            --panel:       #1a1129;
+            --panel-2:     #221635;
+            --line:        #3a2756;
+
+            --purple:      #b266ff;
+            --purple-2:    #8b3df0;
+            --purple-deep: #5b1fb8;
+            --purple-glow: rgba(178,102,255,.55);
+
+            --ember:       #ff8a2b;
+            --ember-hot:   #ff3d00;
+            --ember-glow:  rgba(255,110,30,.5);
+
+            --gold:        #ffd34e;
+            --gold-2:      #e7b23a;
+
+            --bone:        #efe7da;
+            --muted:       #a596bd;
+            --muted-2:     #7d6f97;
+
+            --font-display: 'Grenze Gotisch', 'Times New Roman', serif;
+            --font-body:    'Spectral', Georgia, serif;
+            --font-mono:    'VT323', monospace;
+
+            --maxw: 1180px;
         }
 
-        /* Reduce dead space above logo */
-        .leadsection {
-            padding-top: 30px !important; /* Adjusted from 300px */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--obsidian);
+            color: var(--bone);
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
         }
 
-        /* Video Section Styling */
-        .video-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
+        /* ---- atmospheric layers ---- */
+        #embers {
+            position: fixed; inset: 0;
+            width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+        }
+        .veil {
+            position: fixed; inset: 0; z-index: 1; pointer-events: none;
+            background:
+                radial-gradient(120% 80% at 50% -10%, rgba(139,61,240,.22), transparent 55%),
+                radial-gradient(90% 60% at 90% 110%, rgba(255,90,20,.12), transparent 60%),
+                radial-gradient(70% 50% at 5% 100%, rgba(178,102,255,.10), transparent 60%);
+        }
+        .grain {
+            position: fixed; inset: 0; z-index: 2; pointer-events: none; opacity: .05;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+        .page { position: relative; z-index: 3; }
+
+        a { color: inherit; text-decoration: none; }
+
+        ::selection { background: var(--purple-2); color: #fff; }
+
+        /* ---- scrollbar ---- */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: var(--obsidian); }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--purple-2), var(--purple-deep));
+            border-radius: 10px; border: 3px solid var(--obsidian);
+        }
+        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(var(--purple), var(--ember)); }
+
+        /* ============================================================ NAV */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px clamp(16px, 4vw, 48px);
+            transition: background .35s ease, padding .35s ease, box-shadow .35s ease, border-color .35s;
+            border-bottom: 1px solid transparent;
+        }
+        nav.scrolled {
+            background: rgba(10,6,15,.82);
+            backdrop-filter: blur(14px) saturate(1.2);
+            -webkit-backdrop-filter: blur(14px) saturate(1.2);
+            padding-top: 12px; padding-bottom: 12px;
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 10px 40px rgba(0,0,0,.5);
+        }
+        .brand { display: flex; align-items: center; gap: 12px; }
+        .brand img {
+            width: 42px; height: 42px;
+            filter: drop-shadow(0 0 10px var(--purple-glow));
+            animation: bob 5s ease-in-out infinite;
+        }
+        @keyframes bob { 50% { transform: translateY(-4px) rotate(-2deg); } }
+        .brand .name {
+            font-family: var(--font-display);
+            font-weight: 800; font-size: 1.5rem; letter-spacing: .5px;
+            color: var(--bone); line-height: 1;
+        }
+        .brand .name b { color: var(--purple); }
+
+        .nav-links { display: flex; align-items: center; gap: 6px; }
+        .nav-links a.lnk {
+            font-family: var(--font-display); font-weight: 600;
+            font-size: 1.05rem; letter-spacing: .4px;
+            padding: 8px 14px; border-radius: 8px; color: var(--muted);
+            transition: color .2s, background .2s; position: relative;
+        }
+        .nav-links a.lnk:hover { color: var(--bone); }
+        .nav-links a.lnk::after {
+            content: ""; position: absolute; left: 14px; right: 14px; bottom: 4px;
+            height: 2px; background: linear-gradient(90deg, var(--ember), var(--gold));
+            transform: scaleX(0); transform-origin: left; transition: transform .25s;
+        }
+        .nav-links a.lnk:hover::after { transform: scaleX(1); }
+
+        .btn {
+            font-family: var(--font-display); font-weight: 700;
+            letter-spacing: .5px; cursor: pointer; border: none;
+            display: inline-flex; align-items: center; gap: 9px;
+            border-radius: 10px; position: relative; overflow: hidden;
+            transition: transform .2s ease, box-shadow .3s ease;
+        }
+        .btn svg { width: 1.15em; height: 1.15em; }
+        .btn-sm { font-size: 1rem; padding: 9px 18px; }
+        .btn-lg { font-size: 1.25rem; padding: 15px 30px; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn::before {
+            content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent);
+            transform: skewX(-20deg); transition: left .6s ease;
+        }
+        .btn:hover::before { left: 140%; }
+        .btn-discord {
+            color: #fff;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 100%);
+            box-shadow: 0 6px 24px rgba(123,46,224,.45), inset 0 1px 0 rgba(255,255,255,.25);
+        }
+        .btn-discord:hover { box-shadow: 0 10px 34px rgba(150,70,255,.7), inset 0 1px 0 rgba(255,255,255,.35); }
+        .btn-buy {
+            color: #2a1500;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--ember) 110%);
+            box-shadow: 0 6px 24px var(--ember-glow), inset 0 1px 0 rgba(255,255,255,.45);
+        }
+        .btn-buy:hover { box-shadow: 0 10px 34px rgba(255,120,30,.7), inset 0 1px 0 rgba(255,255,255,.6); }
+        .btn-ghost {
+            color: var(--bone); background: rgba(255,255,255,.04);
+            border: 1px solid var(--line);
+        }
+        .btn-ghost:hover { border-color: var(--purple); color: #fff; }
+
+        .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 6px; }
+        .nav-toggle span { display: block; width: 26px; height: 2px; background: var(--bone); margin: 5px 0; transition: .3s; }
+
+        /* ============================================================ LAYOUT */
+        section { position: relative; padding: clamp(70px, 11vw, 140px) clamp(16px, 4vw, 48px); }
+        .wrap { max-width: var(--maxw); margin: 0 auto; }
+
+        .eyebrow {
+            font-family: var(--font-mono); font-size: 1.35rem; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--ember);
+            display: inline-flex; align-items: center; gap: 12px; margin-bottom: 14px;
+        }
+        .eyebrow::before, .eyebrow::after {
+            content: ""; height: 1px; width: 34px;
+            background: linear-gradient(90deg, transparent, var(--ember));
+        }
+        .eyebrow::after { background: linear-gradient(90deg, var(--ember), transparent); }
+
+        h2.title {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.02;
+            color: var(--bone); letter-spacing: .5px;
+        }
+        h2.title em { font-style: normal; color: var(--purple); }
+        .lead { color: var(--muted); max-width: 60ch; font-size: 1.15rem; margin-top: 18px; }
+
+        /* ============================================================ HERO */
+        .hero {
+            min-height: 100svh; display: flex; flex-direction: column;
+            align-items: center; text-align: center;
+            padding-top: 92px; padding-bottom: 0;
+        }
+        .hero-inner {
+            flex: 1 1 auto; min-height: 0; width: 100%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .hero-logo {
+            width: clamp(92px, 10vw, 120px); height: auto; margin-bottom: 6px;
+            filter: drop-shadow(0 0 26px var(--purple-glow)) drop-shadow(0 6px 18px rgba(0,0,0,.6));
+            animation: floaty 6s ease-in-out infinite;
+        }
+        @keyframes floaty { 50% { transform: translateY(-12px); } }
+
+        .wordmark {
+            font-family: var(--font-display); font-weight: 900;
+            font-size: clamp(3rem, 10vw, 6.4rem); line-height: .96;
+            letter-spacing: 1px; padding-bottom: .12em;
+            background: linear-gradient(180deg, #fff7e6 0%, var(--gold) 42%, var(--ember) 96%);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
+            filter: drop-shadow(0 2px 0 rgba(0,0,0,.4));
+            animation: flicker 5.5s linear infinite;
+        }
+        .wordmark .l2 { display: block; color: transparent; padding-bottom: .16em;
+            background: linear-gradient(180deg, #f1e0ff 0%, var(--purple) 58%, var(--purple-deep) 96%);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        @keyframes flicker {
+            0%,100% { filter: drop-shadow(0 0 24px rgba(255,150,40,.45)) drop-shadow(0 2px 0 rgba(0,0,0,.4)); }
+            48% { filter: drop-shadow(0 0 18px rgba(255,150,40,.35)) drop-shadow(0 2px 0 rgba(0,0,0,.4)); }
+            50% { filter: drop-shadow(0 0 34px rgba(255,180,60,.65)) drop-shadow(0 2px 0 rgba(0,0,0,.4)); }
+            52% { filter: drop-shadow(0 0 20px rgba(255,150,40,.4)) drop-shadow(0 2px 0 rgba(0,0,0,.4)); }
+        }
+        .hero-sub {
+            font-family: var(--font-display); font-weight: 500;
+            font-size: clamp(1.2rem, 3.2vw, 1.9rem); color: var(--bone);
+            letter-spacing: 1px; margin-top: 14px;
+        }
+        .hero-sub b { color: var(--purple); }
+        .hero-note { color: var(--muted-2); font-size: 1rem; margin-top: 6px; letter-spacing: .3px; }
+
+        .hero-cta { display: flex; gap: 16px; margin-top: 22px; flex-wrap: wrap; justify-content: center; }
+
+        .hero-chips {
+            display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 16px;
+        }
+        .chip {
+            font-family: var(--font-mono); font-size: 1.15rem; letter-spacing: 1px;
+            color: var(--muted); padding: 5px 16px; border: 1px solid var(--line);
+            border-radius: 100px; background: rgba(255,255,255,.02);
+        }
+        .chip b { color: var(--gold); }
+
+        .scrollcue {
+            flex: 0 0 auto; padding-bottom: 22px;
+            font-family: var(--font-mono); color: var(--muted-2);
+            font-size: 1.1rem; letter-spacing: 2px;
+        }
+        @keyframes pulsefade { 50% { opacity: .35; transform: translateY(5px); } }
+
+        /* staggered reveal for hero */
+        .rise { opacity: 0; transform: translateY(26px); animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards; }
+        .d1 { animation-delay: .1s; } .d2 { animation-delay: .25s; } .d3 { animation-delay: .4s; }
+        .d4 { animation-delay: .55s; } .d5 { animation-delay: .7s; } .d6 { animation-delay: .85s; }
+        @keyframes rise { to { opacity: 1; transform: none; } }
+
+        /* ============================================================ CLIENT (GIF) */
+        .client-head { text-align: center; margin-bottom: 50px; }
+        .client-stage { position: relative; max-width: 960px; margin: 0 auto; perspective: 1600px; }
+        .client-frame {
+            position: relative; border-radius: 14px; overflow: hidden;
+            border: 1px solid var(--line);
+            background: #0d0d10;
+            box-shadow:
+                0 0 0 1px rgba(0,0,0,.6),
+                0 40px 90px -30px rgba(0,0,0,.9),
+                0 0 70px -10px var(--purple-glow);
+            transform: rotateX(7deg) rotateZ(-.6deg);
+            transition: transform .7s cubic-bezier(.2,.8,.2,1), box-shadow .7s;
+        }
+        .client-stage:hover .client-frame {
+            transform: rotateX(0deg) rotateZ(0deg) scale(1.012);
+            box-shadow: 0 50px 110px -34px rgba(0,0,0,.95), 0 0 100px -6px rgba(178,102,255,.55);
+        }
+        .client-bar {
+            display: flex; align-items: center; gap: 10px;
+            padding: 9px 14px; background: linear-gradient(#1c1626, #15101f);
+            border-bottom: 1px solid #2a2036;
+        }
+        .dot { width: 11px; height: 11px; border-radius: 50%; }
+        .dot.r { background: #ff5f56; } .dot.y { background: #ffbd2e; } .dot.g { background: #27c93f; }
+        .client-bar .ttl {
+            font-family: var(--font-mono); font-size: 1.1rem; color: var(--muted);
+            margin-left: 8px; letter-spacing: 1px;
+        }
+        .client-bar .ttl b { color: var(--purple); }
+        .live {
+            margin-left: auto; font-family: var(--font-mono); font-size: 1rem; letter-spacing: 1.5px;
+            color: #ff6b6b; display: inline-flex; align-items: center; gap: 7px;
+        }
+        .live .pip { width: 9px; height: 9px; border-radius: 50%; background: #ff3b3b;
+            box-shadow: 0 0 0 0 rgba(255,59,59,.7); animation: blip 1.6s ease-out infinite; }
+        @keyframes blip {
+            0% { box-shadow: 0 0 0 0 rgba(255,59,59,.6); } 70% { box-shadow: 0 0 0 10px rgba(255,59,59,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,59,59,0); }
+        }
+        .client-frame img { display: block; width: 100%; height: auto; }
+
+        .callout {
+            position: absolute; z-index: 4; pointer-events: none;
+            font-family: var(--font-mono); letter-spacing: .5px;
+            color: var(--gold); font-size: 1.15rem; line-height: 1.25;
+            text-shadow: 0 2px 10px #000;
+        }
+        .callout.right {
+            top: 30%; right: -22px; transform: translateX(100%); text-align: left;
+            max-width: 180px;
+        }
+        .callout .arr { color: var(--ember); }
+        .client-caption {
+            text-align: center; color: var(--muted); font-family: var(--font-mono);
+            font-size: 1.2rem; letter-spacing: 1px; margin-top: 28px;
+        }
+        .client-caption b { color: var(--gold); }
+
+        /* ============================================================ STATS */
+        .stats {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+            background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+        }
+        .stat { background: linear-gradient(#150e21, #110a1b); padding: 36px 18px; text-align: center; }
+        .stat .num {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1;
+            background: linear-gradient(180deg, var(--gold), var(--ember));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .stat .lab {
+            font-family: var(--font-mono); font-size: 1.15rem; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--muted); margin-top: 8px;
         }
 
-        .video-container iframe {
-            width: 560px;
-            height: 315px;
-            max-width: 100%;
-            border-radius: 10px;
+        /* ============================================================ VIDEOS */
+        .vids { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 50px; }
+        .vid {
+            border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+            background: var(--panel); transition: transform .35s, box-shadow .35s, border-color .35s;
+        }
+        .vid:hover { transform: translateY(-6px); border-color: var(--purple);
+            box-shadow: 0 24px 60px -24px rgba(178,102,255,.5); }
+        .vid .frame { aspect-ratio: 16/9; background: #000; display: block; }
+        .vid iframe { width: 100%; height: 100%; border: 0; display: block; }
+        /* click-to-play facade (avoids embed errors on load + faster page) */
+        .ytlite {
+            position: relative; width: 100%; border: 0; padding: 0; cursor: pointer;
+            background-size: cover; background-position: center;
+            background-color: #0d0d10; display: block;
+        }
+        .ytlite::after {
+            content: ""; position: absolute; inset: 0;
+            background: radial-gradient(60% 60% at 50% 50%, transparent, rgba(8,4,14,.55));
+            transition: background .3s;
+        }
+        .ytlite .play {
+            position: absolute; z-index: 2; top: 50%; left: 50%; transform: translate(-50%,-50%);
+            width: 76px; height: 76px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+            box-shadow: 0 8px 30px rgba(123,46,224,.6), inset 0 1px 0 rgba(255,255,255,.3);
+            transition: transform .3s, box-shadow .3s;
+        }
+        .ytlite .play::before {
+            content: ""; position: absolute; top: 50%; left: 54%; transform: translate(-50%,-50%);
+            border-style: solid; border-width: 14px 0 14px 24px;
+            border-color: transparent transparent transparent #fff;
+        }
+        .ytlite:hover .play { transform: translate(-50%,-50%) scale(1.12);
+            box-shadow: 0 10px 40px rgba(150,70,255,.85), inset 0 1px 0 rgba(255,255,255,.4); }
+        .ytlite:hover::after { background: radial-gradient(60% 60% at 50% 50%, transparent, rgba(8,4,14,.35)); }
+        .vid .cap {
+            display: flex; align-items: center; gap: 12px; padding: 16px 20px;
+            font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--bone);
+        }
+        .vid .cap .tag {
+            margin-left: auto; font-family: var(--font-mono); font-size: .95rem; letter-spacing: 1px;
+            color: var(--ember); border: 1px solid var(--line); padding: 2px 10px; border-radius: 6px;
+        }
+        .vid .cap .yt {
+            font-family: var(--font-mono); font-size: .95rem; letter-spacing: .5px;
+            color: var(--muted); border: 1px solid var(--line); padding: 2px 10px; border-radius: 6px;
+            transition: color .2s, border-color .2s;
+        }
+        .vid .cap .yt:hover { color: var(--gold); border-color: var(--gold-2); }
+
+        /* ============================================================ ARSENAL */
+        .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 40px 0 36px; }
+        .filt {
+            font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; letter-spacing: .5px;
+            padding: 9px 20px; border-radius: 100px; cursor: pointer;
+            background: rgba(255,255,255,.03); border: 1px solid var(--line); color: var(--muted);
+            transition: all .25s;
+        }
+        .filt:hover { color: var(--bone); border-color: var(--purple); }
+        .filt.active {
+            color: #1a0c00; border-color: transparent;
+            background: linear-gradient(135deg, var(--gold), var(--ember));
+            box-shadow: 0 6px 20px var(--ember-glow);
+        }
+        .filt .c { opacity: .65; font-family: var(--font-mono); margin-left: 6px; }
+
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;
+        }
+        .card {
+            position: relative; background: linear-gradient(160deg, var(--panel-2), var(--panel));
+            border: 1px solid var(--line); border-radius: 12px; padding: 20px 20px 20px 22px;
+            overflow: hidden; transition: transform .3s, border-color .3s, box-shadow .3s;
+        }
+        .card::before {
+            content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+            background: var(--cat-color, var(--purple)); opacity: .9;
+        }
+        .card::after {
+            content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .3s;
+            background: radial-gradient(120% 120% at 0% 0%, rgba(255,255,255,.06), transparent 55%);
+        }
+        .card:hover {
+            transform: translateY(-5px); border-color: var(--cat-color, var(--purple));
+            box-shadow: 0 20px 44px -22px var(--cat-color, var(--purple)), 0 0 0 1px rgba(255,255,255,.03) inset;
+        }
+        .card:hover::after { opacity: 1; }
+        .card .top { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .card .ico {
+            width: 38px; height: 38px; flex: 0 0 38px; border-radius: 9px;
+            display: grid; place-items: center;
+            background: rgba(255,255,255,.04); border: 1px solid var(--line);
+            color: var(--cat-color, var(--purple));
+        }
+        .card .ico svg { width: 20px; height: 20px; }
+        .card h3 {
+            font-family: var(--font-display); font-weight: 700; font-size: 1.4rem;
+            color: var(--bone); line-height: 1.1; letter-spacing: .3px;
+        }
+        .card .cat {
+            font-family: var(--font-mono); font-size: .9rem; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--cat-color, var(--purple)); margin-left: auto;
+        }
+        .card p { color: var(--muted); font-size: 1rem; line-height: 1.5; }
+
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+
+        /* ============================================================ STEPS */
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 50px; }
+        .step {
+            position: relative; padding: 34px 26px; border-radius: 14px;
+            background: linear-gradient(165deg, var(--panel-2), var(--panel));
+            border: 1px solid var(--line);
+        }
+        .step .n {
+            font-family: var(--font-display); font-weight: 900; font-size: 3.4rem; line-height: 1;
+            color: transparent; -webkit-text-stroke: 1.5px var(--purple);
+            opacity: .8; margin-bottom: 12px;
+        }
+        .step h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; color: var(--bone); }
+        .step p { color: var(--muted); font-size: 1.02rem; margin-top: 8px; }
+        .step .glow {
+            position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; border-radius: 50%;
+            background: radial-gradient(circle, var(--ember), transparent 70%); opacity: .5; filter: blur(4px);
         }
 
-        .demon-plugins {
-            font-family: 'Marcellus SC', serif;
+        /* ============================================================ CTA */
+        .cta {
+            text-align: center; border-radius: 22px; padding: clamp(50px, 9vw, 90px) 28px;
+            background:
+                radial-gradient(80% 120% at 50% 0%, rgba(139,61,240,.35), transparent 60%),
+                linear-gradient(180deg, #1a0f2b, #0d0717);
+            border: 1px solid var(--line);
+            position: relative; overflow: hidden;
+        }
+        .cta::before, .cta::after {
+            content: ""; position: absolute; width: 280px; height: 280px; border-radius: 50%;
+            filter: blur(60px); opacity: .35; pointer-events: none;
+        }
+        .cta::before { background: var(--purple); top: -120px; left: -60px; }
+        .cta::after { background: var(--ember); bottom: -130px; right: -50px; }
+        .cta h2 {
+            font-family: var(--font-display); font-weight: 900;
+            font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.02; color: var(--bone); position: relative;
+        }
+        .cta h2 em { font-style: normal; color: var(--gold); }
+        .cta p { color: var(--muted); max-width: 54ch; margin: 18px auto 0; position: relative; }
+        .cta-row { display: flex; gap: 16px; justify-content: center; margin-top: 38px; flex-wrap: wrap; position: relative; }
+
+        /* ============================================================ FOOTER */
+        footer {
+            border-top: 1px solid var(--line); padding: 50px clamp(16px,4vw,48px) 40px;
+            text-align: center; position: relative; z-index: 3;
+        }
+        .foot-brand { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .foot-brand img { width: 40px; filter: drop-shadow(0 0 10px var(--purple-glow)); }
+        .foot-brand span { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; }
+        .foot-brand span b { color: var(--purple); }
+        .foot-links { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .foot-links a { color: var(--muted); font-family: var(--font-display); font-size: 1.05rem; transition: color .2s; }
+        .foot-links a:hover { color: var(--gold); }
+        .foot-copy { color: var(--muted-2); font-size: .95rem; }
+        .foot-copy .dis { display: block; margin-top: 10px; font-size: .82rem; max-width: 60ch; margin-left: auto; margin-right: auto; opacity: .7; }
+
+        /* ============================================================ RESPONSIVE */
+        @media (max-width: 860px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: block; }
+            nav.open .nav-links {
+                display: flex; flex-direction: column; align-items: stretch; gap: 6px;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: rgba(10,6,15,.97); backdrop-filter: blur(14px);
+                padding: 18px clamp(16px,4vw,48px) 26px; border-bottom: 1px solid var(--line);
+            }
+            nav.open .nav-links a.lnk { padding: 12px 8px; }
+            nav.open .nav-links .btn { justify-content: center; }
+            .vids { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .steps { grid-template-columns: 1fr; }
+            .callout.right { display: none; }
+            .client-frame { transform: none; }
+            .scrollcue { display: none; }
+        }
+        @media (max-width: 460px) {
+            .stats { grid-template-columns: 1fr; }
+            body { font-size: 17px; }
+        }
+        /* short viewports: hero can't fit the cue, so drop it rather than push it below the fold */
+        @media (max-height: 740px) {
+            .scrollcue { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            html { scroll-behavior: auto; }
+            .rise { opacity: 1; transform: none; }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "VideoObject",
-      "name": "Demon Plugins - Hallowed Sepulchre",
-      "description": "Fully automated Hallowed Sepulchre bot for for OSRS & RuneLite.",
-      "thumbnailUrl": "https://img.youtube.com/vi/Uvfp9bWunjA/maxresdefault.jpg",
-      "uploadDate": "2025-02-20",
-      "contentUrl": "https://www.youtube.com/watch?v=Uvfp9bWunjA",
-      "embedUrl": "https://www.youtube.com/embed/Uvfp9bWunjA",
-      "interactionCount": "50000"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "VideoObject",
-      "name": "Demon Plugins - Royal Titans",
-      "description": "Fully automated Royal Titans bot for OSRS & RuneLite.",
-      "thumbnailUrl": "https://img.youtube.com/vi/Tm1aLItC9Y0/maxresdefault.jpg",
-      "uploadDate": "2025-02-21",
-      "contentUrl": "https://www.youtube.com/watch?v=Tm1aLItC9Y0",
-      "embedUrl": "https://www.youtube.com/embed/Tm1aLItC9Y0",
-      "interactionCount": "25000"
-    }
-    </script>
-
-    <!-- HTML5 Shim -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
-<body data-spy="scroll" data-target="#topnav">
+<body>
 
-<!-- Fixed Navbar -->
-<nav class="navbar navbar-default navbar-fixed-top" id="topnav">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand demon-plugins" href="#">Demon Plugins</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#videos">Videos</a></li>
-                <li><a href="#plugins-list">Plugins List</a></li>
-            </ul>
-        </div>
+<!-- atmosphere -->
+<canvas id="embers"></canvas>
+<div class="veil"></div>
+<div class="grain"></div>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-pvm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14.5 3.5 20 9l-2 2-5.5-5.5zM9.5 8.5 4 3 6.5 3 12 8.5z"/><path d="m12 12 8 8M4 14l6-6"/><path d="m4 20 3-3M16 21h4v-4"/>
+    </symbol>
+    <symbol id="i-skill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m14 7 3-3 4 4-3 3"/><path d="m18 11-7.5 7.5a2.1 2.1 0 0 1-3-3L15 8"/><path d="m3 21 4-1 1-4-4 1z"/>
+    </symbol>
+    <symbol id="i-mini" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9a6 6 0 0 0 12 0V4H6z"/><path d="M6 5H3v2a3 3 0 0 0 3 3M18 5h3v2a3 3 0 0 1-3 3"/><path d="M12 15v3M9 21h6"/>
+    </symbol>
+    <symbol id="i-util" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 2.6 15H2a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 7l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 9 4.6V4a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8 1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/>
+    </symbol>
+    <symbol id="i-discord" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.2.5a18.3 18.3 0 0 1 4.3 1.3 16.6 16.6 0 0 0-15-.0A18.3 18.3 0 0 1 8.8 3.5L8.6 3a19.8 19.8 0 0 0-4.9 1.4C.6 9 .0 13.4.3 17.8a19.9 19.9 0 0 0 6 3l.7-1.2c-.6-.2-1.2-.5-1.7-.8l.4-.3c3.3 1.5 6.9 1.5 10.2 0l.4.3c-.5.3-1.1.6-1.7.8l.7 1.2a19.9 19.9 0 0 0 6-3c.4-5-.6-9.4-2.7-13.4zM8.5 15c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm7 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.6 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21.5 7H6"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></symbol>
+</svg>
+
+<!-- ============================================================ NAV -->
+<nav id="nav">
+    <a class="brand" href="#home">
+        <img src="assets/dp.png" alt="Demon Plugins logo">
+        <span class="name">Demon<b>Plugins</b></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+        <a class="lnk" href="#client">The Client</a>
+        <a class="lnk" href="#arsenal">Arsenal</a>
+        <a class="lnk" href="#videos">Videos</a>
+        <a class="lnk" href="#start">Get Started</a>
+        <a class="btn btn-discord btn-sm" href="https://discord.gg/demonplugins" target="_blank" rel="noopener">
+            <svg><use href="#i-discord"/></svg> Discord
+        </a>
+        <a class="btn btn-buy btn-sm" href="https://pluginshop.link/DemonPlugins" target="_blank" rel="noopener">
+            <svg><use href="#i-cart"/></svg> Purchase
+        </a>
     </div>
 </nav>
 
-<!-- Home Section -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 leadsection innershadow love-and-liberty1" id="home">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <img src="assets/dp.png" alt="Demon Plugins Logo" class="logo">
-                <h1 class="demon-plugins">Demon Plugins</h1>
-                <p class="lead">Advanced Runelite bots for Old School Runescape</p>
-                <p class="lead">Compatible with most platforms using RLPL loader or sideloadable JAR</p>
-                <a class="btn btn-primary btn-lg bigger-btn btn-trans" href="https://discord.gg/demonplugins">
-                    <i class="fa fa-discord"></i> Join Discord
-                </a>
-                <a class="btn btn-warning btn-lg bigger-btn btn-trans" href="https://pluginshop.link/DemonPlugins">
-                    <i class="fa fa-shopping-cart"></i> Purchase
-                </a>
-            </div>
-            <div class="col-md-1"></div>
+<div class="page">
+
+<!-- ============================================================ HERO -->
+<section class="hero" id="home">
+    <div class="hero-inner">
+        <img class="hero-logo rise" src="assets/dp.png" alt="Demon Plugins">
+        <h1 class="wordmark rise d1">Demon<span class="l2">Plugins</span></h1>
+        <p class="hero-sub rise d2">Advanced <b>RuneLite</b> automation for Old School RuneScape</p>
+        <p class="hero-note rise d2">Runs on most platforms via RLPL loader or sideloadable JAR</p>
+        <div class="hero-cta rise d3">
+            <a class="btn btn-discord btn-lg" href="https://discord.gg/demonplugins" target="_blank" rel="noopener">
+                <svg><use href="#i-discord"/></svg> Join the Discord
+            </a>
+            <a class="btn btn-buy btn-lg" href="https://pluginshop.link/DemonPlugins" target="_blank" rel="noopener">
+                <svg><use href="#i-cart"/></svg> Purchase Plugins
+            </a>
+        </div>
+        <div class="hero-chips rise d4">
+            <span class="chip"><b>40+</b> Plugins</span>
+            <span class="chip">PVM &middot; Skilling &middot; Minigames</span>
+            <span class="chip">Fully <b>Automated</b></span>
+            <span class="chip">Active <b>Discord</b></span>
         </div>
     </div>
-</div>
+    <div class="scrollcue rise d6">▾ &nbsp;SCROLL TO DESCEND&nbsp; ▾</div>
+</section>
 
-<!-- Videos Section -->
-<div class="row">
-    <div class="col-md-12 section innershadow mirage1" id="videos">
-        <h2>See Our Plugins in Action</h2>
-        <div class="video-container">
-            <!-- Hallowed Sepulchre Video -->
-            <div>
-                <h3>Hallowed Sepulchre</h3>
-                <iframe src="https://www.youtube.com/embed/Uvfp9bWunjA" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <!-- Royal Titans Video -->
-            <div>
-                <h3>Royal Titans</h3>
-                <iframe src="https://www.youtube.com/embed/Tm1aLItC9Y0" frameborder="0" allowfullscreen></iframe>
-            </div>
+<!-- ============================================================ CLIENT / GIF -->
+<section id="client">
+    <div class="wrap">
+        <div class="client-head">
+            <span class="eyebrow">Inside the Client</span>
+            <h2 class="title">Your sidebar, <em>fully loaded</em>.</h2>
+            <p class="lead" style="margin-left:auto;margin-right:auto;text-align:center;">
+                Every Demon Plugin slots straight into RuneLite. Toggle a script, configure it, and watch it grind, exactly like the live client below.
+            </p>
         </div>
-    </div>
-</div>
 
-<!-- Plugins List Section -->
-<div class="row">
-    <div class="col-md-12 section innershadow mauve1" id="plugins-list">
-        <h2 class="text-center">Our Plugins</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="list-group">
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Royal Titans</strong> - Fully-automated Royal Titans bot</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Hallowed Sepulchre</strong> - Fully automated Hallowed Sepulchre bot</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Tithe Farm</strong> - Fully automated + progressive Tithe Farm bot</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Mastering Mixology</strong> - Fully automatic Master Mixology bot</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Giants’ Foundry</strong> - Fully automated Giants’ Foundry bot</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Pyramid Plunder</strong> - Fully automated Pyramid Plunder bot, searches urns, hunts sceptres.</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Arceuus Library</strong> - Automatically tracks, collects, & turns in books in the Kourend library</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Agility Suite</strong> - Automatically completes most agility courses, includes progressive mode.</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Brimhaven Arena</strong> - Automatically does the Brimhaven Agility Arena</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Herblore Suite</strong> - Automatically cleans all herbs, makes all unfinished potions, and makes potions.</li>
-                    </ul>
+        <div class="client-stage reveal">
+            <div class="callout right">
+                <span class="arr">◀</span> 40+ plugins,<br>one click away
+            </div>
+            <div class="client-frame">
+                <div class="client-bar">
+                    <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                    <span class="ttl">RuneLite : <b>Demon Plugins</b></span>
+                    <span class="live"><span class="pip"></span>LIVE</span>
                 </div>
-                <div class="col-md-6">
-                    <ul class="list-group">
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Bankstander</strong> - Automatically does fletching, smithing, crafting, and magic.</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Thieving Suite</strong> - Does blackjacking, pickpocketing, stealing from stalls, and Rogues’ Den.</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Woodcutting Suite</strong> - Automatically chops logs and burns/drops/banks. 3t support.</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Aerial Fishing</strong> - Catches fish on Molch Island</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Shopper</strong> - Shops & hops</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Tick Cooker</strong> - Does normal cooking, 2t drop cooking, and karambwan cooking.</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Mining Suite</strong> - Does normal mining, 3t4g, and Motherlode Mine.</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Fishing Suite</strong> - Does normal fishing, minnows, and fishing trawler. 3t support.</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Gauntlet Helper</strong> - Automatically swaps prayers against both versions of Hunllef.</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Auto Log Hop</strong> - Automatically logs out or hops worlds when other players are detected.</li>
-                        <li class="list-group-item" style="background-color: #222; color: white;"><strong>Prayer Suite</strong> - Automatically trains prayer by using bones on altar.</li>
-                    </ul>
-                </div>
+                <img src="assets/demon-client.gif" alt="Demon Plugins running live inside the RuneLite client, showing the full plugin sidebar" loading="lazy">
+            </div>
+        </div>
+        <p class="client-caption">Real footage of the Demon Plugins client, with all <b>43 plugins</b> loaded in the sidebar.</p>
+    </div>
+</section>
+
+<!-- ============================================================ STATS -->
+<section style="padding-top:0;">
+    <div class="wrap">
+        <div class="stats reveal">
+            <div class="stat"><div class="num" data-count="40" data-suffix="+">0</div><div class="lab">Plugins</div></div>
+            <div class="stat"><div class="num" data-count="4">0</div><div class="lab">Categories</div></div>
+            <div class="stat"><div class="num" data-count="2">0</div><div class="lab">Load Methods</div></div>
+            <div class="stat"><div class="num" data-count="100" data-suffix="%">0</div><div class="lab">Hands-Free</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ VIDEOS -->
+<section id="videos">
+    <div class="wrap">
+        <span class="eyebrow">Witness the Power</span>
+        <h2 class="title">Plugins in <em>action</em></h2>
+        <p class="lead">No mockups. Full runs, captured straight from the client.</p>
+        <div class="vids">
+            <div class="vid reveal">
+                <a class="frame ytlite" href="https://www.youtube.com/watch?v=Uvfp9bWunjA" target="_blank" rel="noopener"
+                   data-id="Uvfp9bWunjA" aria-label="Play the Hallowed Sepulchre plugin demo"
+                   style="background-image:url('https://i.ytimg.com/vi/Uvfp9bWunjA/hqdefault.jpg')">
+                    <span class="play"></span>
+                </a>
+                <div class="cap">Hallowed Sepulchre <span class="tag">AGILITY</span>
+                    <a class="yt" href="https://www.youtube.com/watch?v=Uvfp9bWunjA" target="_blank" rel="noopener">YouTube&nbsp;↗</a></div>
+            </div>
+            <div class="vid reveal">
+                <a class="frame ytlite" href="https://www.youtube.com/watch?v=Tm1aLItC9Y0" target="_blank" rel="noopener"
+                   data-id="Tm1aLItC9Y0" aria-label="Play the Royal Titans plugin demo"
+                   style="background-image:url('https://i.ytimg.com/vi/Tm1aLItC9Y0/hqdefault.jpg')">
+                    <span class="play"></span>
+                </a>
+                <div class="cap">Royal Titans <span class="tag">BOSS</span>
+                    <a class="yt" href="https://www.youtube.com/watch?v=Tm1aLItC9Y0" target="_blank" rel="noopener">YouTube&nbsp;↗</a></div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Footer -->
-<div class="row">
-    <div class="col-md-12 footer">
-        <p>&copy; 2025 Demon Plugins. All Rights Reserved.</p>
+<!-- ============================================================ ARSENAL -->
+<section id="arsenal">
+    <div class="wrap">
+        <span class="eyebrow">The Arsenal</span>
+        <h2 class="title">40+ plugins. <em>One Discord.</em></h2>
+        <p class="lead">From end-game bossing to AFK skilling, pick your grind and let it run. Filter the full lineup below.</p>
+
+        <div class="filters" id="filters"></div>
+        <div class="grid" id="grid"></div>
     </div>
-</div>
+</section>
 
-<!-- Scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<script>
-    $(function () {
-        $(document).scroll(function () {
-            var $nav = $(".navbar-fixed-top");
-            $nav.toggleClass('scrolled', $(this).scrollTop() > 200);
-        });
-    });
-    $('body').scrollspy({ target: '#topnav' });
-</script>
+<!-- ============================================================ STEPS -->
+<section id="start" style="padding-top:0;">
+    <div class="wrap">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="title">From zero to <em>automated</em></h2>
+        <div class="steps">
+            <div class="step reveal">
+                <span class="glow"></span>
+                <div class="n">01</div>
+                <h3>Join the Discord</h3>
+                <p>Hop into the community, grab the latest news, and see what every plugin can do before you commit.</p>
+            </div>
+            <div class="step reveal">
+                <span class="glow"></span>
+                <div class="n">02</div>
+                <h3>Get your plugins</h3>
+                <p>Purchase access through the shop. Instant delivery, instant entitlements tied to your account.</p>
+            </div>
+            <div class="step reveal">
+                <span class="glow"></span>
+                <div class="n">03</div>
+                <h3>Load &amp; conquer</h3>
+                <p>Launch via the RLPL loader or a sideloadable JAR, toggle your plugins, and let the grind run itself.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ FINAL CTA -->
+<section style="padding-top:0;">
+    <div class="wrap">
+        <div class="cta reveal">
+            <h2>Stop grinding.<br>Start <em>conquering</em>.</h2>
+            <p>Join hundreds of players running Demon Plugins right now. The whole arsenal lives one click away in our Discord.</p>
+            <div class="cta-row">
+                <a class="btn btn-discord btn-lg" href="https://discord.gg/demonplugins" target="_blank" rel="noopener">
+                    <svg><use href="#i-discord"/></svg> Join the Discord
+                </a>
+                <a class="btn btn-buy btn-lg" href="https://pluginshop.link/DemonPlugins" target="_blank" rel="noopener">
+                    <svg><use href="#i-cart"/></svg> Purchase Plugins
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<footer>
+    <div class="foot-brand">
+        <img src="assets/dp.png" alt="Demon Plugins">
+        <span>Demon<b>Plugins</b></span>
+    </div>
+    <div class="foot-links">
+        <a href="#client">The Client</a>
+        <a href="#arsenal">Arsenal</a>
+        <a href="#videos">Videos</a>
+        <a href="https://discord.gg/demonplugins" target="_blank" rel="noopener">Discord</a>
+        <a href="https://pluginshop.link/DemonPlugins" target="_blank" rel="noopener">Purchase</a>
+    </div>
+    <div class="foot-copy">
+        &copy; 2025 Demon Plugins. All Rights Reserved.
+        <span class="dis">Demon Plugins is an independent project and is not affiliated with, endorsed by, or associated with Jagex Ltd or RuneLite.</span>
+    </div>
+</footer>
+
+</div><!-- /page -->
+
+<!-- structured data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Demon Plugins - RuneLite Bots",
-  "description": "Advanced RuneLite bots for OSRS. Automate PVM, skilling, minigames, and more.",
-  "brand": "Demon Plugins",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "200"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://demonplugins.com/#org",
+      "name": "Demon Plugins",
+      "url": "https://demonplugins.com/",
+      "logo": "https://demonplugins.com/assets/dp.png",
+      "sameAs": ["https://discord.gg/demonplugins"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://demonplugins.com/#website",
+      "name": "Demon Plugins",
+      "url": "https://demonplugins.com/",
+      "publisher": { "@id": "https://demonplugins.com/#org" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Demon Plugins",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS, Linux",
+      "url": "https://demonplugins.com/",
+      "description": "A suite of 40+ advanced RuneLite plugins for Old School RuneScape covering PVM, bossing, skilling and minigames. Loads via the RLPL loader or a sideloadable JAR.",
+      "publisher": { "@id": "https://demonplugins.com/#org" }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Demon Plugins - Hallowed Sepulchre",
+      "description": "Fully automated Hallowed Sepulchre plugin for Old School RuneScape & RuneLite.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/Uvfp9bWunjA/maxresdefault.jpg",
+      "uploadDate": "2025-02-20",
+      "duration": "PT3M",
+      "contentUrl": "https://www.youtube.com/watch?v=Uvfp9bWunjA",
+      "embedUrl": "https://www.youtube.com/embed/Uvfp9bWunjA"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Demon Plugins - Royal Titans",
+      "description": "Fully automated Royal Titans boss plugin for Old School RuneScape & RuneLite.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/Tm1aLItC9Y0/maxresdefault.jpg",
+      "uploadDate": "2025-02-21",
+      "duration": "PT3M20S",
+      "contentUrl": "https://www.youtube.com/watch?v=Tm1aLItC9Y0",
+      "embedUrl": "https://www.youtube.com/embed/Tm1aLItC9Y0"
+    }
+  ]
 }
 </script>
 
 <script>
-const canvas = document.getElementById("synapse-bg");
-const ctx = canvas.getContext("2d");
+/* ---------------- plugin data ---------------- */
+const CATS = {
+    pvm:   { label:'PVM',           color:'#ff5a3c', icon:'i-pvm'   },
+    skill: { label:'Skilling',      color:'#3fd17a', icon:'i-skill' },
+    mini:  { label:'Minigames',     color:'#b266ff', icon:'i-mini'  },
+    misc:  { label:'Miscellaneous', color:'#ffd34e', icon:'i-util'  },
+};
+const PLUGINS = [
+    // PVM / bossing
+    ['Royal Titans','pvm','Fully-automated solo Royal Titans kills.'],
+    ['Zalcano','pvm','Complete mining & combat loop for Zalcano.'],
+    ['Tormented Demons','pvm','Automated Tormented Demons kills and loot.'],
+    ['Scurrius','pvm','Automated Scurrius, the Rat King boss.'],
+    ['Gauntlet Helper','pvm','Auto prayer swaps against both Hunllef variants.'],
+    ['Lizardman Temple','pvm','Kills and loots Lizardman Shamans on rotation.'],
+    ['Fighter','pvm','Configurable combat, looting & food handling.'],
+    // Minigames
+    ['Hallowed Sepulchre','mini','Full obstacle navigation & looting, every floor.'],
+    ['Pest Control','mini','Full-auto Pest Control for Void and points.'],
+    ['Brimhaven Arena','mini','Agility Arena ticket farming on autopilot.'],
+    ['Tithe Farm','mini','Progressive Tithe Farm runs for points & XP.'],
+    ['Pyramid Plunder','mini','Searches urns, hunts sceptres, banks loot.'],
+    ['Mastering Mixology','mini','Full Mastering Mixology potion loop.'],
+    ["Giants' Foundry",'mini','Smiths weapons start to finish for points.'],
+    ['Temple Trekking','mini','Completes Temple Trekking escorts automatically.'],
+    ['Mage Training Arena','mini','Earns all four MTA point types hands-free.'],
+    ['Tears of Guthix','mini','Runs the weekly Tears of Guthix for XP.'],
+    ['PVP Arena','mini','Automated PVP Arena games for points.'],
+    ['Vale Totems','mini','Builds & fletches Vale totems for rewards.'],
+    ['Wintertodt','mini','Solo or mass Wintertodt, start to finish.'],
+    ['Arceuus Library','mini','Tracks, collects & turns in Kourend library books.'],
+    // Skilling (gains XP)
+    ['Agility Suite','skill','Every rooftop course plus other agility courses.'],
+    ['Herblore Suite','skill','Cleans herbs and mixes every potion tier.'],
+    ['Bankstander','skill','Fletching, smithing, crafting & magic at the bank.'],
+    ['Woodcutting Suite','skill','Chops, banks, burns or drops logs. 2t & 3t support.'],
+    ['Mining Suite','skill','Normal mining, 3t4g, and Motherlode Mine.'],
+    ['Fishing Suite','skill','Fishing, minnows & trawler. 3-tick support.'],
+    ['Aerial Fishing','skill','Catches fish on Molch Island, hands-free.'],
+    ["Chef's Delight",'skill','Tick-perfect cooking: 1t/2t drops & karambwans.'],
+    ['Prayer Suite','skill','Bones on altars, the gilded altar and libation bowl.'],
+    ['Construction Suite','skill','Trains construction and runs Mahogany Homes.'],
+    ['Blast Furnace','skill','Full Blast Furnace smithing automation.'],
+    ['Thieving Suite','skill','Blackjacking, pickpocketing, stalls & Rogues’ Den.'],
+    ['Salvager','skill','Salvaging for XP with tick manipulation.'],
+    // Miscellaneous (no XP / utility)
+    ['Planker','misc','Turns logs into planks at the sawmill.'],
+    ['Shopper','misc','Buys stock and hops worlds automatically.'],
+    ['Flipper','misc','Grand Exchange flipping assistant.'],
+    ['Finds Cleaner','misc','Cleans finds in the Varrock Museum.'],
+    ['Auto Log Hop','misc','Logs out or hops worlds when players are detected.'],
+    ['Multibox','misc','Run and control multiple clients at once.'],
+    ['Hotkeys','misc','Bind custom in-game actions to your keyboard.'],
+    ['Task Manager','misc','Chain plugins into fully automated task lists.'],
+    ['Demon Utils','misc','Shared core toolkit powering every plugin.'],
+];
 
-let particles = [];
-const maxParticles = 100;
-const mouse = { x: 0, y: 0 };
+/* ---------------- render arsenal ---------------- */
+(function(){
+    const grid = document.getElementById('grid');
+    const filters = document.getElementById('filters');
+    const order = ['all','pvm','skill','mini','misc'];
+    const counts = { all: PLUGINS.length };
+    PLUGINS.forEach(p => counts[p[1]] = (counts[p[1]]||0)+1);
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    order.forEach((key,i) => {
+        const b = document.createElement('button');
+        b.className = 'filt' + (i===0?' active':'');
+        b.dataset.f = key;
+        const lab = key==='all' ? 'All' : CATS[key].label;
+        b.innerHTML = lab + '<span class="c">' + counts[key] + '</span>';
+        filters.appendChild(b);
+    });
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas(); // Ensure it runs on page load
+    function card(p, idx){
+        const [name,cat,desc] = p; const c = CATS[cat];
+        const el = document.createElement('article');
+        el.className = 'card reveal'; el.dataset.cat = cat;
+        el.style.setProperty('--cat-color', c.color);
+        el.style.transitionDelay = (idx % 8 * 0.03) + 's';
+        el.innerHTML =
+            '<div class="top">'+
+              '<div class="ico"><svg><use href="#'+c.icon+'"/></svg></div>'+
+              '<h3>'+name+'</h3>'+
+              '<span class="cat">'+c.label+'</span>'+
+            '</div><p>'+desc+'</p>';
+        return el;
+    }
+    PLUGINS.forEach((p,i)=>grid.appendChild(card(p,i)));
 
-window.addEventListener("mousemove", (event) => {
-    mouse.x = event.x;
-    mouse.y = event.y;
+    filters.addEventListener('click', e => {
+        const b = e.target.closest('.filt'); if(!b) return;
+        filters.querySelectorAll('.filt').forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');
+        const f = b.dataset.f;
+        grid.querySelectorAll('.card').forEach(c => {
+            const show = f==='all' || c.dataset.cat===f;
+            c.style.display = show ? '' : 'none';
+        });
+    });
+})();
+
+/* ---------------- nav scroll + mobile ---------------- */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive:true });
+document.getElementById('navToggle').addEventListener('click', () => nav.classList.toggle('open'));
+document.getElementById('navLinks').addEventListener('click', e => {
+    if (e.target.closest('a')) nav.classList.remove('open');
 });
 
-// Particle Class
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.speedX = Math.random() * 2 - 1;
-        this.speedY = Math.random() * 2 - 1;
-        this.size = Math.random() * 3 + 1;
-    }
+/* ---------------- youtube click-to-play (privacy-enhanced) ---------------- */
+document.querySelectorAll('.ytlite').forEach(function(el){
+    el.addEventListener('click', function(e){
+        e.preventDefault();
+        var id = el.dataset.id;
+        var f = document.createElement('iframe');
+        f.className = 'frame';
+        f.src = 'https://www.youtube-nocookie.com/embed/' + id +
+                '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+        f.title = el.getAttribute('aria-label') || 'Demon Plugins video';
+        f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        f.allowFullscreen = true;
+        el.replaceWith(f);
+    });
+});
 
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
+/* ---------------- reveal on scroll ---------------- */
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    }
+/* ---------------- count-up stats ---------------- */
+const sio = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const el = en.target;
+        if (el.dataset.plain) { el.textContent = el.dataset.plain; el.style.fontSize='clamp(1.1rem,3vw,1.7rem)'; el.style.letterSpacing='1px'; sio.unobserve(el); return; }
+        const target = +el.dataset.count, suf = el.dataset.suffix || '';
+        let n = 0; const step = Math.max(1, Math.round(target/40));
+        const t = setInterval(() => {
+            n += step; if (n >= target){ n = target; clearInterval(t); }
+            el.textContent = n + suf;
+        }, 28);
+        sio.unobserve(el);
+    });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat .num').forEach(el => sio.observe(el));
 
-    draw() {
-        ctx.fillStyle = "rgba(0, 255, 255, 0.8)";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
+/* ---------------- ember particle field ---------------- */
+(function(){
+    const c = document.getElementById('embers'), x = c.getContext('2d');
+    let w,h,parts,raf;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function size(){ w = c.width = innerWidth; h = c.height = innerHeight; }
+    function mk(){
+        return {
+            x: Math.random()*w, y: h + Math.random()*h*0.4,
+            r: Math.random()*2.2 + 0.6,
+            vy: -(Math.random()*0.7 + 0.25),
+            vx: (Math.random()-0.5)*0.35,
+            life: Math.random(), drift: Math.random()*Math.PI*2,
+            purple: Math.random() < 0.18,
+        };
     }
-}
-    
+    function init(){ const n = Math.min(110, Math.floor(w/14)); parts = Array.from({length:n}, mk); }
+    function draw(){
+        x.clearRect(0,0,w,h);
+        for (const p of parts){
+            p.drift += 0.01;
+            p.x += p.vx + Math.sin(p.drift)*0.25;
+            p.y += p.vy;
+            p.life += 0.005;
+            const tw = 0.55 + Math.sin(p.life*6)*0.45;
+            if (p.y < -10){ Object.assign(p, mk(), { y: h + 10 }); }
+            const col = p.purple ? '178,102,255' : '255,'+(120+Math.floor(Math.sin(p.life)*40))+',40';
+            x.beginPath();
+            x.fillStyle = 'rgba('+col+','+(tw*0.85).toFixed(2)+')';
+            x.shadowBlur = 12; x.shadowColor = p.purple ? 'rgba(178,102,255,.8)' : 'rgba(255,120,30,.8)';
+            x.arc(p.x, p.y, p.r, 0, 7);
+            x.fill();
+        }
+        x.shadowBlur = 0;
+        raf = requestAnimationFrame(draw);
+    }
+    size(); init(); if (!reduce) draw();
+    addEventListener('resize', () => { cancelAnimationFrame(raf); size(); init(); if(!reduce) draw(); }, { passive:true });
+})();
+</script>
 </body>
 </html>
