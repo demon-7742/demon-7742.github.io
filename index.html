@@ -375,55 +375,19 @@
         }
 
         /* ============================================================ VIDEOS */
-        .vids { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 50px; }
-        .vid {
-            border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
-            background: var(--panel); transition: transform .35s, box-shadow .35s, border-color .35s;
+        .showcase {
+            margin: 50px auto 0; max-width: 960px; position: relative;
+            border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #0a0a0d;
+            box-shadow: 0 40px 90px -30px rgba(0,0,0,.9), 0 0 70px -12px var(--purple-glow);
+            transition: box-shadow .45s ease;
         }
-        .vid:hover { transform: translateY(-6px); border-color: var(--purple);
-            box-shadow: 0 24px 60px -24px rgba(178,102,255,.5); }
-        .vid .frame { aspect-ratio: 16/9; background: #000; display: block; }
-        .vid iframe { width: 100%; height: 100%; border: 0; display: block; }
-        /* click-to-play facade (avoids embed errors on load + faster page) */
-        .ytlite {
-            position: relative; width: 100%; border: 0; padding: 0; cursor: pointer;
-            background-size: cover; background-position: center;
-            background-color: #0d0d10; display: block;
+        .showcase:hover { box-shadow: 0 50px 110px -34px rgba(0,0,0,.95), 0 0 100px -8px rgba(178,102,255,.55); }
+        .showcase video { display: block; width: 100%; height: auto; background: #000; }
+        .showcase-cap {
+            text-align: center; color: var(--muted); font-family: var(--font-mono);
+            font-size: 1.15rem; letter-spacing: 1px; margin-top: 24px;
         }
-        .ytlite::after {
-            content: ""; position: absolute; inset: 0;
-            background: radial-gradient(60% 60% at 50% 50%, transparent, rgba(8,4,14,.55));
-            transition: background .3s;
-        }
-        .ytlite .play {
-            position: absolute; z-index: 2; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 76px; height: 76px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--purple), var(--purple-deep));
-            box-shadow: 0 8px 30px rgba(123,46,224,.6), inset 0 1px 0 rgba(255,255,255,.3);
-            transition: transform .3s, box-shadow .3s;
-        }
-        .ytlite .play::before {
-            content: ""; position: absolute; top: 50%; left: 54%; transform: translate(-50%,-50%);
-            border-style: solid; border-width: 14px 0 14px 24px;
-            border-color: transparent transparent transparent #fff;
-        }
-        .ytlite:hover .play { transform: translate(-50%,-50%) scale(1.12);
-            box-shadow: 0 10px 40px rgba(150,70,255,.85), inset 0 1px 0 rgba(255,255,255,.4); }
-        .ytlite:hover::after { background: radial-gradient(60% 60% at 50% 50%, transparent, rgba(8,4,14,.35)); }
-        .vid .cap {
-            display: flex; align-items: center; gap: 12px; padding: 16px 20px;
-            font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--bone);
-        }
-        .vid .cap .tag {
-            margin-left: auto; font-family: var(--font-mono); font-size: .95rem; letter-spacing: 1px;
-            color: var(--ember); border: 1px solid var(--line); padding: 2px 10px; border-radius: 6px;
-        }
-        .vid .cap .yt {
-            font-family: var(--font-mono); font-size: .95rem; letter-spacing: .5px;
-            color: var(--muted); border: 1px solid var(--line); padding: 2px 10px; border-radius: 6px;
-            transition: color .2s, border-color .2s;
-        }
-        .vid .cap .yt:hover { color: var(--gold); border-color: var(--gold-2); }
+        .showcase-cap b { color: var(--gold); }
 
         /* ============================================================ ARSENAL */
         .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 40px 0 36px; }
@@ -695,27 +659,15 @@
     <div class="wrap">
         <span class="eyebrow">Witness the Power</span>
         <h2 class="title">Plugins in <em>action</em></h2>
-        <p class="lead">No mockups. Full runs, captured straight from the client.</p>
-        <div class="vids">
-            <div class="vid reveal">
-                <a class="frame ytlite" href="https://www.youtube.com/watch?v=Uvfp9bWunjA" target="_blank" rel="noopener"
-                   data-id="Uvfp9bWunjA" aria-label="Watch the Hallowed Sepulchre plugin demo on YouTube"
-                   style="background-image:url('https://i.ytimg.com/vi/Uvfp9bWunjA/hqdefault.jpg')">
-                    <span class="play"></span>
-                </a>
-                <div class="cap">Hallowed Sepulchre <span class="tag">AGILITY</span>
-                    <a class="yt" href="https://www.youtube.com/watch?v=Uvfp9bWunjA" target="_blank" rel="noopener">YouTube&nbsp;↗</a></div>
-            </div>
-            <div class="vid reveal">
-                <a class="frame ytlite" href="https://www.youtube.com/watch?v=Tm1aLItC9Y0" target="_blank" rel="noopener"
-                   data-id="Tm1aLItC9Y0" aria-label="Watch the Royal Titans plugin demo on YouTube"
-                   style="background-image:url('https://i.ytimg.com/vi/Tm1aLItC9Y0/hqdefault.jpg')">
-                    <span class="play"></span>
-                </a>
-                <div class="cap">Royal Titans <span class="tag">BOSS</span>
-                    <a class="yt" href="https://www.youtube.com/watch?v=Tm1aLItC9Y0" target="_blank" rel="noopener">YouTube&nbsp;↗</a></div>
-            </div>
+        <p class="lead">A montage of plugins running live, ending with real results from the community. No mockups.</p>
+        <div class="showcase reveal">
+            <video controls preload="none" playsinline poster="assets/demo_poster.jpg"
+                   aria-label="Demon Plugins montage: plugins in action with community results">
+                <source src="assets/demo.mp4" type="video/mp4">
+                Your browser doesn't support embedded video. <a href="assets/demo.mp4">Download the montage</a>.
+            </video>
         </div>
+        <p class="showcase-cap">Real footage of <b>7 plugins</b> in action, plus achievements from the community.</p>
     </div>
 </section>
 
@@ -830,23 +782,12 @@
     },
     {
       "@type": "VideoObject",
-      "name": "Demon Plugins - Hallowed Sepulchre",
-      "description": "Fully automated Hallowed Sepulchre plugin for Old School RuneScape & RuneLite.",
-      "thumbnailUrl": "https://i.ytimg.com/vi/Uvfp9bWunjA/maxresdefault.jpg",
-      "uploadDate": "2025-02-20",
-      "duration": "PT3M",
-      "contentUrl": "https://www.youtube.com/watch?v=Uvfp9bWunjA",
-      "embedUrl": "https://www.youtube.com/embed/Uvfp9bWunjA"
-    },
-    {
-      "@type": "VideoObject",
-      "name": "Demon Plugins - Royal Titans",
-      "description": "Fully automated Royal Titans boss plugin for Old School RuneScape & RuneLite.",
-      "thumbnailUrl": "https://i.ytimg.com/vi/Tm1aLItC9Y0/maxresdefault.jpg",
-      "uploadDate": "2025-02-21",
-      "duration": "PT3M20S",
-      "contentUrl": "https://www.youtube.com/watch?v=Tm1aLItC9Y0",
-      "embedUrl": "https://www.youtube.com/embed/Tm1aLItC9Y0"
+      "name": "Demon Plugins - Plugins in Action",
+      "description": "A montage of Demon Plugins automating Old School RuneScape: Royal Titans, Hallowed Sepulchre, Scurrius, Pest Control, Agility, Chef's Delight and Herblore, with real results from the community.",
+      "thumbnailUrl": "https://demonplugins.com/assets/demo_poster.jpg",
+      "uploadDate": "2026-06-15",
+      "duration": "PT45S",
+      "contentUrl": "https://demonplugins.com/assets/demo.mp4"
     }
   ]
 }
