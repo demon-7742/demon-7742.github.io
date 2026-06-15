@@ -699,7 +699,7 @@
         <div class="vids">
             <div class="vid reveal">
                 <a class="frame ytlite" href="https://www.youtube.com/watch?v=Uvfp9bWunjA" target="_blank" rel="noopener"
-                   data-id="Uvfp9bWunjA" aria-label="Play the Hallowed Sepulchre plugin demo"
+                   data-id="Uvfp9bWunjA" aria-label="Watch the Hallowed Sepulchre plugin demo on YouTube"
                    style="background-image:url('https://i.ytimg.com/vi/Uvfp9bWunjA/hqdefault.jpg')">
                     <span class="play"></span>
                 </a>
@@ -708,7 +708,7 @@
             </div>
             <div class="vid reveal">
                 <a class="frame ytlite" href="https://www.youtube.com/watch?v=Tm1aLItC9Y0" target="_blank" rel="noopener"
-                   data-id="Tm1aLItC9Y0" aria-label="Play the Royal Titans plugin demo"
+                   data-id="Tm1aLItC9Y0" aria-label="Watch the Royal Titans plugin demo on YouTube"
                    style="background-image:url('https://i.ytimg.com/vi/Tm1aLItC9Y0/hqdefault.jpg')">
                     <span class="play"></span>
                 </a>
@@ -963,22 +963,9 @@ document.getElementById('navLinks').addEventListener('click', e => {
     if (e.target.closest('a')) nav.classList.remove('open');
 });
 
-/* ---------------- youtube click-to-play (privacy-enhanced) ---------------- */
-document.querySelectorAll('.ytlite').forEach(function(el){
-    el.addEventListener('click', function(e){
-        e.preventDefault();
-        var id = el.dataset.id;
-        var f = document.createElement('iframe');
-        f.className = 'frame';
-        f.src = 'https://www.youtube-nocookie.com/embed/' + id +
-                '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
-        f.title = el.getAttribute('aria-label') || 'Demon Plugins video';
-        f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-        f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-        f.allowFullscreen = true;
-        el.replaceWith(f);
-    });
-});
+/* ---------------- videos open on YouTube in a new tab ----------------
+   These clips have embedding disabled by the owner, so an inline player
+   throws Error 153. The cards are plain links to the watch page instead. */
 
 /* ---------------- reveal on scroll ---------------- */
 const io = new IntersectionObserver((entries) => {
